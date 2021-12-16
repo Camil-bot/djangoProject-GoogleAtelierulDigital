@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<table>
+	<tr>
+	{%for vaykay in vacationpackage_list%}
+	<td>
+	<div class="col-md-4">
+		<br><br><br><br><br>
+		<figure class="card card-product" style="width: 389px;">
+			<div class="img-wrap"><img src="{{vaykay.image}}" width="389" height="225"></div>
+			<figcaption class="info-wrap">
+					<h4 class="title">{{vaykay.location_name}}</h4>
+					<p class="desc">Very Nice!</p>
+					<div class="rating-wrap">
+						<div class="label-rating">Just {{vaykay.quantity}} offers left!</div>
+					</div> <!-- rating-wrap.// -->
+			</figcaption>
+			<div class="bottom-wrap">
+				<form action="", method="post" >
+					{% csrf_token %}
+					<button type="submit" class="btn btn-sm btn-primary float-right" >Add 2 Cart</button>
+				</form>
+				<div class="price-wrap h5">
+					<span class="price-new">{{vaykay.price}}</span>
+				</div> <!-- price-wrap.// -->
+			</div> <!-- bottom-wrap.// -->
+		</figure>
+	</div> <!-- col // -->
+	</td>
+	{% endfor %}
+</tr>
+</table>
+
+{% endblock %}
